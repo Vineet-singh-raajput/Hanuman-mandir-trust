@@ -1,0 +1,549 @@
+html
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Hanuman Mandir Trust</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background: #fef8f0;
+            color: #3e2c1b;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #b22222;
+            color: #fff;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+        .logo i {
+            color: #ffd700;
+            margin-right: 10px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 17px;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            color: #ffd700;
+        }
+        .donate-btn {
+            background: #ffd700;
+            color: #b22222;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+        .donate-btn:hover {
+            background: #fff;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(178, 34, 34, 0.75), rgba(178, 34, 34, 0.75)),
+                url('https://source.unsplash.com/1600x600/?hanuman,temple,india') center/cover no-repeat;
+            color: #fff;
+            padding: 100px 20px;
+            text-align: center;
+            border-radius: 0 0 40px 40px;
+        }
+        .hero h1 {
+            font-size: 54px;
+            margin-bottom: 15px;
+        }
+        .hero p {
+            font-size: 22px;
+            max-width: 700px;
+            margin: auto;
+            background: rgba(0,0,0,0.3);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .hero .btn {
+            display: inline-block;
+            margin-top: 30px;
+            background: #ffd700;
+            color: #b22222;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .hero .btn:hover {
+            background: #fff;
+            transform: scale(1.05);
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 40px;
+            color: #b22222;
+        }
+        .section-title i {
+            color: #ffd700;
+            margin-right: 12px;
+        }
+
+        /* About */
+        .about-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+        .about-grid img {
+            flex: 1 1 300px;
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        .about-text {
+            flex: 1 1 300px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+        }
+        .gallery-grid img {
+            width: 300px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            transition: 0.3s;
+        }
+        .gallery-grid img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(178,34,34,0.3);
+        }
+
+        /* Events */
+        .event-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            flex: 1 1 250px;
+            max-width: 300px;
+            border-left: 6px solid #b22222;
+            transition: 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+        }
+        .card i {
+            color: #b22222;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        /* Donation */
+        .donation-box {
+            background: #b22222;
+            color: #fff;
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(178,34,34,0.4);
+        }
+        .donation-box h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+        .donation-box p {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+        .btn-donate {
+            background: #ffd700;
+            color: #b22222;
+            padding: 16px 50px;
+            border-radius: 50px;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .btn-donate:hover {
+            background: #fff;
+            transform: scale(1.05);
+        }
+
+        /* Contact Form + Map */
+        .contact-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+        .contact-form {
+            flex: 1 1 350px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+        .contact-form button {
+            background: #b22222;
+            color: #fff;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+        }
+        .contact-form button:hover {
+            background: #ffd700;
+            color: #b22222;
+        }
+        .contact-map {
+            flex: 1 1 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        .contact-map iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 350px;
+            border: 0;
+        }
+
+        /* Floating buttons */
+        .float-wa {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: #25D366;
+            color: #fff;
+            padding: 16px 20px;
+            border-radius: 50px;
+            font-size: 22px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 99;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .float-call {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #b22222;
+            color: #fff;
+            padding: 16px 20px;
+            border-radius: 50px;
+            font-size: 22px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 99;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .float-wa:hover,
+        .float-call:hover {
+            transform: scale(1.08);
+            color: #fff;
+        }
+
+        /* Back to top */
+        #topBtn {
+            position: fixed;
+            bottom: 140px;
+            right: 20px;
+            background: #ffd700;
+            color: #b22222;
+            padding: 12px 16px;
+            border-radius: 50px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 99;
+            display: none;
+        }
+        #topBtn:hover {
+            background: #fff;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c1a0e;
+            color: #ccc;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            border-radius: 40px 40px 0 0;
+        }
+        footer .social i {
+            font-size: 28px;
+            margin: 0 12px;
+            color: #ffd700;
+            transition: 0.3s;
+        }
+        footer .social i:hover {
+            color: #fff;
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .header-flex {
+                flex-direction: column;
+                gap: 12px;
+            }
+            nav a {
+                margin: 0 6px;
+                font-size: 14px;
+            }
+            .hero h1 {
+                font-size: 34px;
+            }
+            .section-title {
+                font-size: 28px;
+            }
+            .gallery-grid img {
+                width: 100%;
+                height: auto;
+            }
+            .float-wa,
+            .float-call {
+                font-size: 16px;
+                padding: 12px 16px;
+            }
+            .float-wa span,
+            .float-call span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="container header-flex">
+        <div class="logo"><i class="fas fa-om"></i> Hanuman Mandir Trust</div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#events">Events</a>
+            <a href="#donation">Donate</a>
+            <a href="#contact">Contact</a>
+            <a href="#donation" class="donate-btn"><i class="fas fa-heart"></i> Donate</a>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <h1>🙏 Jai Hanuman 🙏</h1>
+        <p>Seva, Bhakti aur Samarpan – Hanuman Mandir Trust mein aapka swagat hai.</p>
+        <a href="#donation" class="btn"><i class="fas fa-hand-holding-heart"></i> Seva Mein Yogdan Dein</a>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="container">
+        <h2 class="section-title"><i class="fas fa-temple"></i> About Us</h2>
+        <div class="about-grid">
+            <img src="https://source.unsplash.com/600x400/?hanuman,statue" alt="Hanuman Ji" />
+            <div class="about-text">
+                <p><strong>Hanuman Mandir Trust</strong> ek dharmik evam samajik sanstha hai jo Bhagwan Hanuman ki bhakti aur garibon ki seva ke liye samarpit hai.</p>
+                <p>📍 <strong>स्थान:</strong> Ayodhya Nagar, Near Ram Setu, India</p>
+                <p>🕰️ <strong>समय:</strong> Subah 5:00 AM – Raat 9:00 PM</p>
+                <p><i class="fas fa-hand-holding-heart" style="color:#b22222;"></i> <strong>लक्ष्य:</strong> समाज के हर वर्ग तक प्रभु की कृपा पहुँचाना।</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" style="background: #f5ede4; border-radius: 60px;">
+    <div class="container">
+        <h2 class="section-title"><i class="fas fa-images"></i> Gallery</h2>
+        <div class="gallery-grid">
+            <img src="https://source.unsplash.com/400x300/?hanuman,idol" alt="Hanuman Idol" />
+            <img src="https://source.unsplash.com/400x300/?temple,india" alt="Temple View" />
+            <img src="https://source.unsplash.com/400x300/?aarti,diya" alt="Aarti" />
+        </div>
+    </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+    <div class="container">
+        <h2 class="section-title"><i class="fas fa-calendar-check"></i> Upcoming Events</h2>
+        <div class="event-cards">
+            <div class="card">
+                <i class="fas fa-music"></i>
+                <h3>Bhajan Sandhya</h3>
+                <p>📅 15 Sept 2026<br>🕗 7:00 PM<br>✨ Special Ram Bhajan</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-utensils"></i>
+                <h3>Mahaprasad Langar</h3>
+                <p>📅 20 Sept 2026<br>🕛 12:00 PM<br>🍛 Free prasad for all</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-hands-helping"></i>
+                <h3>Seva Camp</h3>
+                <p>📅 28 Sept 2026<br>🕘 9:00 AM<br>🩺 Health & donation camp</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DONATION -->
+<section id="donation">
+    <div class="container">
+        <div class="donation-box">
+            <h2><i class="fas fa-donate" style="color:#ffd700;"></i> Donate for Seva</h2>
+            <p>आपका छोटा सा योगदान किसी के जीवन में बड़ा बदलाव ला सकता है।<br> 🙏 <strong>“सेवा ही सर्वोत्तम धर्म है”</strong></p>
+            <a href="#" class="btn-donate"><i class="fas fa-credit-card"></i> Donate Now (UPI / Card)</a>
+            <p style="margin-top:20px; font-size:18px;">📱 UPI: hanumanmandir@upi | 📞 +91-98765-43210</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT + FORM + MAP -->
+<section id="contact">
+    <div class="container">
+        <h2 class="section-title"><i class="fas fa-address-card"></i> Contact Us</h2>
+        <div class="contact-wrapper">
+            <!-- Form -->
+            <div class="contact-form">
+                <h3 style="color:#b22222; margin-bottom:15px;"><i class="fas fa-paper-plane"></i> Send Message</h3>
+                <form action="https://formspree.io/f/xqakvqkp" method="POST">
+                    <input type="text" name="name" placeholder="Your Name *" required />
+                    <input type="email" name="email" placeholder="Your Email *" required />
+                    <input type="text" name="phone" placeholder="Phone Number" />
+                    <textarea name="message" rows="4" placeholder="Your Message *" required></textarea>
+                    <button type="submit"><i class="fas fa-envelope"></i> Send Message</button>
+                </form>
+                <p style="margin-top:12px; font-size:14px; color:#888;">📩 We’ll reply within 24 hours.</p>
+            </div>
+            <!-- Google Map -->
+            <div class="contact-map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28489.25819085296!2d77.5945627!3d26.9158362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39736b47c02efdcf%3A0x1ecf2cc9de4f64f2!2sHanuman%20Temple!5e0!3m2!1sen!2sin!4v1710000000000" 
+                    allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="social">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p>© 2026 Hanuman Mandir Trust | सर्वे भवन्तु सुखिनः 🙏</p>
+    </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<a href="https://wa.me/919876543210?text=Jai%20Hanuman!%20Mujhe%20mandir%20ke%20baare%20mein%20jaanna%20hai." class="float-wa" target="_blank">
+    <i class="fab fa-whatsapp"></i> <span>WhatsApp</span>
+</a>
+<a href="tel:+919876543210" class="float-call">
+    <i class="fas fa-phone-alt"></i> <span>Call</span>
+</a>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="topBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+    // Back to top button
+    const topBtn = document.getElementById("topBtn");
+    window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            topBtn.style.display = "block";
+        } else {
+            topBtn.style.display = "none";
+        }
+    };
+    topBtn.addEventListener("click", function() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+</script>
+
+</body>
+</html>
+
